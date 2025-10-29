@@ -28,11 +28,19 @@ spec:
           image: juangrp/hola-clase3:1  # <-- Reemplaza con la imagen que quieras usar
           ports:
             - containerPort: 3000
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "800Mi"
+            limits:
+              cpu: "1000m"
+              memory: "1500Mi"
           envFrom:
             - configMapRef:
                 name: mi-configmap
             - secretRef:
                 name: mi-secret
+---
 ---
 apiVersion: v1
 kind: Service
